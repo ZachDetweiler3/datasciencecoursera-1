@@ -63,5 +63,3 @@ Since the mean and standard deviations are each variables, the spread() function
 
 Task 5: Average by variable and subject
 The group_by(), summarize() functions from the dplyr package were used to acquire the averages for each variable by "Subject" and "Activity". This results in 5940 rows of averages. One could use this to determine the averages ACROSS all variables simply by grouping only the "Subject" and "Activity". This final table is exported as master_final.txt.
-
-Lastly, the code book is generated.
