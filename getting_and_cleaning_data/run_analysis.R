@@ -50,7 +50,8 @@ names(master) <- gsub("[0-9]","",names(master)) %>% #algorithm to alter column n
   gsub("Mag-mean","-mean-Magnitude",.) %>%
   gsub("Acc-","Accelerometer Acceleration ",.) %>%
   gsub("Gyro-","Gyroscope Acceleration ",.) %>%
-  gsub("Jerk"," Jerk ",.) %>%
+  gsub("AccJerk","Accelerometer Jerk ",.) %>%
+  gsub("GyroJerk","Gyroscope Jerk ",.) %>%
   gsub("-"," ",.)
 
 master$row <- 1:nrow(master) #unique observation ID
@@ -61,4 +62,5 @@ master <- gather(master, key = to_sep, value = value, -Subject, -Activity, -row)
 
 ## Task 5: Average by variable and subject
 master_final <- group_by(master, Subject, Activity, Domain, Source, Sensor, Type, Component) %>%
-  summarize(mean(mean),mean(std)) %>%
+  summarize(mean(mean),mean(std))
+
