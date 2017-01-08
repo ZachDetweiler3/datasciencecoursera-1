@@ -62,5 +62,6 @@ master <- gather(master, key = to_sep, value = value, -Subject, -Activity, -row)
 
 ## Task 5: Average by variable and subject
 master_final <- group_by(master, Subject, Activity, Domain, Source, Sensor, Type, Component) %>%
-  summarize(mean(mean),mean(std))
+  summarize(mean(mean),mean(std)) %>%
+  write.table("master_final.txt", row.names = FALSE)
 
